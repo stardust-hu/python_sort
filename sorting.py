@@ -19,8 +19,27 @@ def straight_insert_sort(lists, print_flag=False):
     return lists
 
 
-def shell_sort(lists, print_flag=False):
-    pass
+def shell_sort(lists, step=2, print_flag=False):
+    """希尔排序"""
+    n = len(lists)
+    increment = n / step
+    while increment > 0:
+        for i in range(increment):
+            j = i + increment
+            while j < n:
+                key = lists[j]
+                k = j - increment
+                while k >= 0:
+                    if key < lists[k]:
+                        lists[k+increment] = lists[k]
+                        lists[k] = key
+                    k -= increment
+                j += increment
+        increment /= step
+
+        if print_flag is True:
+            print lists
+    return lists
 
 
 def simple_selection_sort(lists, print_flag):
@@ -35,6 +54,7 @@ def simple_selection_sort(lists, print_flag):
                 lists[i] = min_data
         if print_flag is True:
             print lists
+    return lists
 
 
 def heap_sort(lists, print_flag=False):
