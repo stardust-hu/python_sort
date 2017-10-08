@@ -73,5 +73,29 @@ def bubble_sort(lists, print_flag=False):
             print lists
     return lists
 
+
+def quick_sort(lists, left, right, print_flag=False):
+    """快速排序"""
+    if print_flag is True:
+        print lists
+
+    if left >= right:
+        return lists
+
+    key = lists[left]
+    low = left
+    high = right
+    while left < right:
+        while left < right and lists[right] > key:
+            right -= 1
+        lists[left] = lists[right]
+        while left < right and lists[left] <= key:
+            left += 1
+        lists[right] = lists[left]
+    lists[right] = key
+    quick_sort(lists, low, left-1, print_flag)
+    quick_sort(lists, left+1, high, print_flag)
+    return lists
+
 if __name__ == '__main__':
     pass
