@@ -65,8 +65,8 @@ def heap_sort(lists, print_flag=False):
 def bubble_sort(lists, print_flag=False):
     """冒泡排序"""
     n = len(lists)
-    for i in range(n-1, -1, -1):
-        for j in range(i):
+    for i in range(n):
+        for j in range(n-i-1):
             if lists[j] > lists[j+1]:
                 lists[j+1], lists[j] = lists[j], lists[j+1]
         if print_flag is True:
