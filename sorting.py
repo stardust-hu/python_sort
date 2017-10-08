@@ -58,7 +58,20 @@ def simple_selection_sort(lists, print_flag):
 
 
 def heap_sort(lists, print_flag=False):
+    """堆排序"""
     pass
+
+
+def bubble_sort(lists, print_flag=False):
+    """冒泡排序"""
+    n = len(lists)
+    for i in range(n-1, -1, -1):
+        for j in range(i):
+            if lists[j] > lists[j+1]:
+                lists[j+1], lists[j] = lists[j], lists[j+1]
+        if print_flag is True:
+            print lists
+    return lists
 
 if __name__ == '__main__':
     pass
